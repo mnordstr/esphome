@@ -42,6 +42,14 @@ void GreeClimate::transmit_state() {
     } else if (this->vertical_swing_() != GREE_VDIR_AUTO) {
       remote_state[5] = this->vertical_swing_();
     }
+
+    // I-Feel & Wifi
+    bool iFeelMode = true;
+    bool enableWiFi = true;
+
+    remote_state[5] = 0x82 |
+    (iFeelMode ? (1 << 2) : 0) |
+    (enableWiFi ? (1 << 6) : 0);
   }
 
   if (this->model_ == GREE_YX1FF) {
