@@ -20,6 +20,8 @@ void GreeClimate::set_model(Model model) {
 void GreeClimate::transmit_state() {
   uint8_t remote_state[8] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x20, 0x00, 0x00};
 
+  ESP_LOGD(TAG, "Testing 1");
+
   remote_state[0] = this->fan_speed_() | this->operation_mode_();
   remote_state[1] = this->temperature_();
 
@@ -120,8 +122,8 @@ void GreeClimate::transmit_state() {
   data->space(0);
 
   transmit.perform();
-
-  ESP_LOGV(TAG, "Sending gree code: 0x%06 %06 %06 %06 %06 %06 %06 %06" PRIX32, remote_state[0], remote_state[1], remote_state[2], remote_state[3], remote_state[4], remote_state[5], remote_state[6], remote_state[7]);
+  ESP_LOGD(TAG, "Testing 2");
+  ESP_LOGD(TAG, "Sending gree code: 0x%06 %06 %06 %06 %06 %06 %06 %06" PRIX32, remote_state[0], remote_state[1], remote_state[2], remote_state[3], remote_state[4], remote_state[5], remote_state[6], remote_state[7]);
 }
 
 uint8_t GreeClimate::operation_mode_() {
