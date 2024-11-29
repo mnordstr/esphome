@@ -1,4 +1,5 @@
 #include "gree.h"
+#include "esphome/core/log.h"
 #include "esphome/components/remote_base/remote_base.h"
 
 namespace esphome {
@@ -119,6 +120,8 @@ void GreeClimate::transmit_state() {
   data->space(0);
 
   transmit.perform();
+
+  ESP_LOGV(TAG, "Sending gree code: 0x%06 %06 %06 %06 %06 %06 %06 %06" PRIX32, remote_state[0], remote_state[1], remote_state[2], remote_state[3], remote_state[4], remote_state[5], remote_state[6], remote_state[7]);
 }
 
 uint8_t GreeClimate::operation_mode_() {
