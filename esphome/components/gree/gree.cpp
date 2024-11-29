@@ -123,7 +123,7 @@ void GreeClimate::transmit_state() {
 
   transmit.perform();
   ESP_LOGD(TAG, "Testing 2");
-  ESP_LOGD(TAG, "Sending gree code: 0x%06 %06 %06 %06 %06 %06 %06 %06", remote_state[0], remote_state[1], remote_state[2], remote_state[3], remote_state[4], remote_state[5], remote_state[6], remote_state[7]);
+  ESP_LOGD(TAG, "Sending gree code: 0x%02x %02x %02x %02x %02x %02x %02x %02x", remote_state[0], remote_state[1], remote_state[2], remote_state[3], remote_state[4], remote_state[5], remote_state[6], remote_state[7]);
 }
 
 uint8_t GreeClimate::operation_mode_() {
